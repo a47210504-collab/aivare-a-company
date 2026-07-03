@@ -1,0 +1,434 @@
+/* ==========================================================================
+   1. الإعدادات العامة والألوان (Metaverse High-End Style)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+    direction: rtl !important;
+    text-align: right;
+}
+
+:root {
+    --bg-dark: #060913; /* درجة أغمق وأفخم من الأسود الليلي */
+    --bg-card: rgba(21, 28, 44, 0.6); /* كروت شفافة زجاجية Glassmorphism */
+    --primary: #00f2fe; 
+    --secondary: #4facfe;
+    --text-main: #ffffff;
+    --text-muted: #8493a8;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* خلفية النيون المتحركة التفاعلية زي موقع ميتا */
+body::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(79, 172, 254, 0) 70%);
+    top: -10%;
+    left: -10%;
+    z-index: -1;
+    animation: floatingGlow 15s infinite alternate ease-in-out;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(79, 172, 254, 0.06) 0%, rgba(0, 242, 254, 0) 70%);
+    top: 50%;
+    right: -10%;
+    z-index: -1;
+    animation: floatingGlow 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatingGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(100px, 50px) scale(1.2); }
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. شريط التنقل الزجاجي (Blur Navbar)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(6, 9, 19, 0.7);
+    backdrop-filter: blur(20px); /* تأثير الضباب الفخم للنظام */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 20px 0;
+    transition: 0.3s;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-name {
+    color: var(--text-main);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 35px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+.btn-nav {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: #000 !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+}
+
+/* ==========================================================================
+   3. الواجهة الرئيسية العملاقة (Hero Section)
+   ========================================================================== */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.badge {
+    background: rgba(0, 242, 254, 0.08);
+    color: var(--primary);
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    letter-spacing: 1px;
+}
+
+.hero-content h1 {
+    font-size: 64px; /* خط عريض وعملاق */
+    font-weight: 900;
+    margin-bottom: 30px;
+    line-height: 1.25;
+}
+
+.highlight {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 21px;
+    color: var(--text-muted);
+    max-width: 850px;
+    margin: 0 auto 45px auto;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 16px 40px;
+    font-weight: 700;
+    border-radius: 50px; /* زراير دائرية فخمة زي تصاميم ميتا الجديدة */
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: #000;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border: 2px solid rgba(255,255,255,0.1);
+    color: var(--text-main);
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(5px);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(0, 242, 254, 0.02);
+}
+
+/* ==========================================================================
+   4. قسم الابتكارات (Glass Cards)
+   ========================================================================== */
+.innovations-section, .apex-section, .vision-section, .contact-section {
+    padding: 140px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 80px;
+    font-weight: 900;
+}
+
+.inn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.inn-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: 50px 35px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.inn-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 242, 254, 0.25);
+    box-shadow: 0 15px 40px rgba(0, 242, 254, 0.1);
+    background: rgba(21, 28, 44, 0.8);
+}
+
+.inn-icon {
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+.inn-card h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.inn-card p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   5. سكشن مشروع ApeX العملاق
+   ========================================================================== */
+.apex-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.apex-text {
+    flex: 1;
+}
+
+.prod-tag {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.apex-text h2 {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.apex-text p {
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.apex-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* تلميع الموك اب عشان يظهر نيون مستقبلي */
+.visual-mockup {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, #161f33, #0b0f19);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--primary);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 242, 254, 0.1);
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* ==========================================================================
+   6. الرؤية والإحصائيات
+   ========================================================================== */
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.vision-text h2 {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.vision-text p {
+    color: var(--text-muted);
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.vision-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-box {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: 50px 30px;
+    border-radius: 24px;
+    text-align: center;
+    flex: 1;
+    border: 1px solid rgba(255,255,255,0.02);
+}
+
+.stat-number {
+    font-size: 60px;
+    font-weight: 900;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.stat-box p {
+    color: var(--text-muted);
+    font-size: 16px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   7. نموذج التواصل الفخم
+   ========================================================================== */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: 60px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 18px;
+    background: rgba(6, 9, 19, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+}
+
+/* ==========================================================================
+   8. الفوتر والتجاوب
+   ========================================================================== */
+.footer {
+    text-align: center;
+    padding: 60px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+}
+.footer p { text-align: center; }
+
+@media (max-width: 968px) {
+    .apex-row { flex-direction: column; gap: 40px; }
+    .vision-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-content h1 { font-size: 42px; }
+    .navbar .nav-links { display: none; }
+}
