@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Aivare | تقنيات وتطبيقات المستقبل الذكية</title>
+    <meta name="description" content="Aivare Software Company هي المنصة المتكاملة لبناء وهندسة الحلول الرقمية، والأنظمة السحابية، وتطبيقات الذكاء الاصطناعي لمستقبل أعمالك ومشاريعك.">
+    <meta name="author" content="Aivare">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* التنسيق الأساسي الفخم بطابع النيون الأزرق الداكن لـ Aivare */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #111625 0%, #070a12 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* شريط التنقل العلوي الثابت - Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(13, 18, 30, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .nav-logo h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .nav-logo h1 span {
+            color: #6bf6ff;
+        }
+
+        .nav-left-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #8fa0b5;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #6bf6ff;
+            text-shadow: 0 0 10px rgba(107, 246, 255, 0.5);
+            background: rgba(107, 246, 255, 0.05);
+        }
+
+        /* حاوية بيانات العميل في النافبار */
+        .user-nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-welcome-text {
+            color: #bafffb;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* زر تسجيل الدخول / تسجيل الخروج */
+        .btn-nav-auth {
+            background: transparent;
+            border: 1px solid #6bf6ff;
+            color: #6bf6ff;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-nav-auth:hover {
+            background: rgba(107, 246, 255, 0.1);
+            box-shadow: 0 0 15px rgba(107, 246, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* ستايل مخصص لزر تسجيل الخروج ليكون أرفع */
+        .btn-nav-logout {
+            border-color: rgba(255, 79, 79, 0.5) !important;
+            color: #ff4f4f !important;
+            font-weight: 400 !important;
+        }
+        .btn-nav-logout:hover {
+            background: rgba(255, 79, 79, 0.1) !important;
+            box-shadow: 0 0 15px rgba(255, 79, 79, 0.2) !important;
+        }
+
+        /* حاوية الصفحات الـ SPA */
+        .page-content {
+            padding-top: 100px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* إخفاء الصفحات بشكل افتراضى وإظهار النشطة فقط */
+        .page-section {
+            display: none;
+            width: 100%;
+            padding: 40px 8%;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 1. صفحة الرئيسية - Home */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            max-width: 800px;
+            line-height: 1.4;
+        }
+
+        .hero h2 span {
+            color: #6bf6ff;
+            text-shadow: 0 0 15px rgba(107, 246, 255, 0.3);
+        }
+
+        .hero p {
+            color: #8fa0b5;
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 35px;
+        }
+
+        .hero-btn {
+            background: linear-gradient(90deg, #6bf6ff, #bafffb);
+            color: #070a12;
+            padding: 14px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 4px 20px rgba(107, 246, 255, 0.2);
+            transition: 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(107, 246, 255, 0.5);
+        }
+
+        /* العناوين الموحدة للصفحات */
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #6bf6ff;
+        }
+
+        /* 2. صفحة خدماتنا - Services */
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(20, 26, 41, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 35px 25px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 320px;
+            transition: 0.3s ease;
+            text-align: right;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(107, 246, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            color: #6bf6ff;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #8fa0b5;
+            font-size: 14px;
+        }
+
+        /* 3. صفحة أعمالنا - Portfolio */
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(13, 18, 30, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: #6bf6ff;
+            box-shadow: 0 0 20px rgba(107, 246, 255, 0.15);
+        }
+
+        .project-info {
+            padding: 25px;
+            text-align: right;
+        }
+
+        .project-tag {
+            background: rgba(107, 246, 255, 0.1);
+            color: #6bf6ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .project-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* 4. صفحة من نحن - About Us */
+        .about-box {
+            background: rgba(13, 18, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .about-box p {
+            color: #8fa0b5;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* 5. صفحة فورم التعاقد النيون */
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .container-form {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(13, 18, 30, 0.75);
+            border: 1px solid rgba(107, 246, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(107, 246, 255, 0.05);
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #6bf6ff;
+            text-shadow: 0 0 15px rgba(107, 246, 255, 0.5);
+        }
+
+        p.subtitle {
+            color: #8fa0b5;
+            font-size: 16px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: right;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            color: #bafffb;
+            font-size: 14px;
+            font-weight: 600;
+            padding-right: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: #141a29;
+            border: 1px solid #1e2638;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6bf6ff;
+            box-shadow: 0 0 12px rgba(107, 246, 255, 0.25);
+            background: #171f33;
+        }
+
+        textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .btn-submit-contract {
+            background: linear-gradient(90deg, #6bf6ff, #bafffb);
+            color: #070a12;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(107, 246, 255, 0.2);
+            width: 100%;
+        }
+
+        .btn-submit-contract:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(107, 246, 255, 0.4);
+        }
+
+        /* الفوتر المتكامل المحترف */
+        .main-footer {
+            background: #090d16;
+            padding: 40px 8% 20px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #566579;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: #6bf6ff;
+        }
+
+        /* تنسيق أزرار السوشيال ميديا النيون اللينكات الحقيقية */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #8fa0b5;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .social-links a:hover {
+            color: #6bf6ff;
+            border-color: #6bf6ff;
+            background: rgba(107, 246, 255, 0.05);
+            box-shadow: 0 0 12px rgba(107, 246, 255, 0.2);
+        }
+
+        .copyright {
+            color: #404c5a;
+            font-size: 13px;
+        }
+
+        /* استجابة للموبايل */
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 5%; }
+            .nav-links { gap: 12px; font-size: 13px; }
+            .hero h2 { font-size: 28px; }
+            .page-section { padding: 30px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="https://i.postimg.cc/tJ8Jt46W/Whats-App-Image-2026-06-16-at-3-44-42-PM.jpg" alt="Aivare Logo" width="45" height="45" loading="lazy">
+            <h1><span>Aivare</span> Company</h1>
+        </div>
+        <div class="nav-left-container">
+            <ul class="nav-links">
+                <li><a onclick="navigateTo('home')" id="link-home" class="active" role="button" aria-label="الصفحة الرئيسية">الرئيسية</a></li>
+                <li><a onclick="navigateTo('services')" id="link-services" role="button" aria-label="خدماتنا">خدماتنا</a></li>
+                <li><a onclick="navigateTo('portfolio')" id="link-portfolio" role="button" aria-label="أعمالنا">أعمالنا</a></li>
+                <li><a onclick="navigateTo('about')" id="link-about" role="button" aria-label="من نحن">من نحن</a></li>
+                <li><a onclick="navigateTo('contact')" id="link-contact" role="button" aria-label="طلب تعاقد">طلب تعاقد</a></li>
+            </ul>
+            
+            <div id="auth-nav-section" class="user-nav-profile">
+                <a href="auth.html" id="authBtn" target="_blank" rel="noopener" class="btn-nav-auth">سجل الدخول</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+
+        <section id="page-home" class="page-section active">
+            <div class="hero">
+                <h2>نبتكر تقنيات وتطبيقات المستقبل الذكية مع <span>Aivare</span></h2>
+                <p>المنصة المتكاملة لبناء وهندسة الحلول الرقمية والأنظمة السحابية المدعومة بالذكاء الاصطناعي لرفع كفاءة أعمالك.</p>
+                <button class="hero-btn" onclick="navigateTo('contact')">ابدأ رحلتك معنا الآن</button>
+            </div>
+        </section>
+
+        <section id="page-services" class="page-section">
+            <h2 class="section-title">خدمات منصة <span>Aivare</span></h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>سرعة الأداء والكفاءة</h3>
+                    <p>أنظمة مبنية بأحدث البنى التحتية البرمجية لضمان استجابة فائقة وسرعة معالجة لا مثيل لها.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>ذكاء اصطناعي متكامل</h3>
+                    <p>تطبيقات وحلول رقمية ذكية قادرة على تحليل البيانات ودعم اتخاذ القرارات في شركتك تلقائياً.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>أمان وحماية قصوى</h3>
+                    <p>تشفير كامل للبيانات وحماية المنظومات الإدارية لمنع أي ثغرات أو عمليات وصول غير مصرح بها.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-portfolio" class="page-section">
+            <h2 class="section-title">معرض مشاريع <span>Aivare</span></h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="project-tag">تطبيقات الذكاء الاصطناعي</span>
+                        <h3>مشروع ApeX AI</h3>
+                        <p>تطوير عميل ذكي ونظام متكامل داخل منظومة Aivare لإدارة العمليات الآلية بذكاء فائق.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="project-tag">تطوير الألعاب 3D</span>
+                        <h3>Neon Drift: Street Tycoon</h3>
+                        <p>لعبة سباق وبناء إمبراطورية سيارات ثلاثية الأبعاد قادمة للـ PC والهواتف المحمولة بطابع النيون.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-about" class="page-section">
+            <h2 class="section-title">من نحن في <span>Aivare</span></h2>
+            <div class="about-box">
+                <p>تأسست شركة <strong>Aivare</strong> ككيان تكنولوجي رائد يهدف إلى سد الفجوة بين التقنيات البرمجية التقليدية وثورة الذكاء الاصطناعي القادمة.</p>
+                <p>نحن نعمل على تطوير بنى تحتية برمجية، وتطبيقات ذكية، ومنصات بناء مواقع تسهم في تمكين المطورين والشركات من إنجاز مشاريعهم بأعلى درجات الكفاءة والأمان وبأقل مجهود برمجي ممكن.</p>
+                <p>رؤيتنا هي قيادة الابتكار الرقمي وبناء أدوات ذكية تغير مفهوم هندسة البرمجيات في المنطقة.</p>
+            </div>
+        </section>
+
+        <section id="page-contact" class="page-section">
+            <div class="form-wrapper">
+                <div class="container-form">
+                    <div class="logo-text">موقع <span>Aivare</span> للتعاقد</div>
+                    <p class="subtitle">سجل بياناتك وطلبك الآن، وسيقوم فريقنا التقني بالتواصل معك فوراً.</p>
+
+                    <form id="contactForm" onsubmit="sendContactForm(event)">
+                        <div class="form-group">
+                            <label for="nameInput">الاسم بالكامل</label>
+                            <input type="text" id="nameInput" placeholder="أدخل اسمك أو اسم شركتك" required autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneInput">رقم الهاتف / الواتساب</label>
+                            <input type="tel" id="phoneInput" placeholder="مثال: 01223688253" required autocomplete="tel">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailInput">البريد الإلكتروني</label>
+                            <input type="email" id="emailInput" placeholder="name@gmail.com" required autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="messageInput">الرسالة أو طلب التعاقد</label>
+                            <textarea id="messageInput" placeholder="اكتب تفاصيل مشروعك أو الخدمة المطلوبة هنا..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-contract">إرسال طلب التعاقد</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-links">
+            <a onclick="navigateTo('home')" role="button">الرئيسية</a>
+            <a onclick="navigateTo('services')" role="button">خدماتنا</a>
+            <a onclick="navigateTo('portfolio')" role="button">أعمالنا</a>
+            <a onclick="navigateTo('about')" role="button">من نحن</a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/17D5tZUE9o/" target="_blank" rel="noopener">فيسبوك</a>
+            <a href="https://www.instagram.com/a47210504?igsh=MXEyZmVkZzAwczA0cg==" target="_blank" rel="noopener">إنستجرام</a>
+            <a href="https://x.com/Ai_vare" target="_blank" rel="noopener">منصة X</a>
+            <a href="https://wa.me/201223688253" target="_blank" rel="noopener" style="color: #25D366; border-color: rgba(37, 211, 102, 0.25);">واتساب المبيعات</a>
+        </div>
+
+        <div class="copyright">
+            جميع الحقوق محفوظة © 2026 لشركة Aivare لتقنيات وتطبيقات المستقبل
+        </div>
+    </footer>
+
+    <script>
+        // دالة التبديل بين الصفحات بذكاء وسلاسة (SPA Router)
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            document.getElementById('page-' + pageId).classList.add('active');
+            const activeLink = document.getElementById('link-' + pageId);
+            if(activeLink) activeLink.classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+
+        // تشغيل فحص حالة تسجيل الدخول أول ما الصفحة تفتح
+        document.addEventListener("DOMContentLoaded", checkLoginStatus);
+
+        function checkLoginStatus() {
+            const authSection = document.getElementById("auth-nav-section");
+            
+            const clientName = localStorage.getItem("aivare_client_name");
+            const isLoggedIn = localStorage.getItem("aivare_logged_in");
+
+            if (isLoggedIn === "true" && clientName) {
+                authSection.innerHTML = `
+                    <span class="user-welcome-text">مرحباً، ${clientName}</span>
+                    <button onclick="handleLogout()" class="btn-nav-auth btn-nav-logout">تسجيل الخروج</button>
+                `;
+            } else {
+                authSection.innerHTML = `
+                    <a href="auth.html" target="_blank" rel="noopener" class="btn-nav-auth">سجل الدخول</a>
+                `;
+            }
+        }
+
+        // دالة تسجيل الخروج
+        function handleLogout() {
+            localStorage.removeItem("aivare_logged_in");
+            localStorage.removeItem("aivare_client_name");
+            alert("تم تسجيل الخروج بنجاح.");
+            checkLoginStatus();
+        }
+
+        // دالة ربط الفورم مع سيرفر FastAPI بالمسار الكامل المباشر
+        async function sendContactForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById("nameInput").value.trim();
+            const phone = document.getElementById("phoneInput").value.trim();
+            const email = document.getElementById("emailInput").value.trim();
+            const message = document.getElementById("messageInput").value.trim();
+
+            const payload = {
+                name: name,
+                phone_number: phone, 
+                email: email,
+                message: message
+            };
+
+            try {
+                // تعديل مسار الـ fetch للربط المباشر مع بورت الباك إند الثابت 8000
+                const response = await fetch("http://127.0.0.1:8000/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("🎉 تم إرسال طلب التعاقد بنجاح! سيتم مراجعته في لوحة تحكم الأدمن.");
+                    document.getElementById("contactForm").reset();
+                } else {
+                    let errorMsg = "حدث خطأ في السيرفر";
+                    if (data.detail) {
+                        if (typeof data.detail === 'string') {
+                            errorMsg = data.detail;
+                        } else if (Array.isArray(data.detail)) {
+                            errorMsg = data.detail.map(err => `${err.loc?.[1] || err.loc?.[0] || 'field'}: ${err.msg}`).join("\n");
+                        } else {
+                            errorMsg = JSON.stringify(data.detail);
+                        }
+                    }
+                    alert("⚠️ تفاصيل الخطأ القادم من السيرفر:\n" + errorMsg);
+                }
+            } catch (error) {
+                console.error("Error sending message:", error);
+                alert("❌ فشل الاتصال بالسيرفر! تأكد أن سيرفر FastAPI يعمل في الخلفية أو أن المسار /api/contact صحيح.");
+            }
+        }
+    </script>
+</body>
+</html>
