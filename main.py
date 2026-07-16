@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-# إضافة المسار الحالي للمشروع لضمان رؤية المجلدات الفرعية
+# إضافة المسار الحالي للمشروع لضمان رؤية الملفات والمجلدات
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = FastAPI(title="Aivare Core API")
@@ -20,29 +20,39 @@ app.add_middleware(
 )
 
 # تفعيل مسار عرض الصور والملفات الثابتة (Static Files) 
-# هذا يجعل مجلد static/uploads متاحاً عبر الرابط: http://127.0.0.1:8000/static/uploads/
 os.makedirs("static/uploads", exist_ok=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-# 1. استيراد راوتر التعاقدات (Contact Router)
+# 1. استيراد راوتر التعاقدات (Contact Router) مباشرة من الفولدر الرئيسي
 try:
-    from app.routers import contact
+    import contact
     app.include_router(contact.router)
     print("🚀 SUCCESS: Contact router loaded successfully.")
 except ImportError as e:
-    print(f"❌ CRITICAL ERROR: Could not import contact router. Check path or dependencies: {e}")
+    # محاولة بديلة لو الملف موجود داخل فولدر فرعي
+    try:
+        from app.routers import contact
+        app.include_router(contact.router)
+        print("🚀 SUCCESS: Contact router loaded from app.routers.")
+    except ImportError:
+        print(f"❌ CRITICAL ERROR: Could not import contact router. Check path or dependencies: {e}")
 except Exception as e:
     print(f"💥 RUNTIME ERROR: An error occurred inside contact.py: {e}")
 
 
-# 2. استيراد راوتر المشاريع الجديد (Projects Router)
+# 2. استيراد راوتر المشاريع (Projects Router) مباشرة من الفولدر الرئيسي
 try:
-    from app.routers import projects
+    import projects
     app.include_router(projects.router)
     print("🚀 SUCCESS: Projects router loaded successfully.")
 except ImportError as e:
-    print(f"❌ CRITICAL ERROR: Could not import projects router. Check path or dependencies: {e}")
+    try:
+        from app.routers import projects
+        app.include_router(projects.router)
+        print("🚀 SUCCESS: Projects router loaded from app.routers.")
+    except ImportError:
+        print(f"❌ CRITICAL ERROR: Could not import projects router. Check path or dependencies: {e}")
 except Exception as e:
     print(f"💥 RUNTIME ERROR: An error occurred inside projects.py: {e}")
 
@@ -53,5 +63,6 @@ def home():
 
 
 if __name__ == "__main__":
-    # تشغيل السيرفر بالاسم الثابت "main:app" لضمان استقرار خاصية الـ reload وتفادي توقف uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    # قراءة البورت ديناميكياً من السيرفر لضمان عمل السيرفر على Railway
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
