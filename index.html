@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <base href="https://aivare-a-company.vercel.app/"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Aivare | تقنيات وتطبيقات المستقبل الذكية</title>
-    <meta name="description" content="Aivare Software Company هي المنصة المتكاملة لبناء وهندسة الحلول الرقمية، والأنظمة السحابية، وتطبيقات الذكاء الاصطناعي لمستقبل أعمالك ومشاريعك.">
-    <meta name="author" content="Aivare">
-    <meta name="robots" content="index, follow">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <meta content="Aivare Software Company هي المنصة المتكاملة لبناء وهندسة الحلول الرقمية، والأنظمة السحابية، وتطبيقات الذكاء الاصطناعي لمستقبل أعمالك ومشاريعك." name="description"/>
+    <meta content="Aivare" name="author"/>
+    <meta content="index, follow" name="robots"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
     <style>
         /* التنسيق الأساسي المطور بطابع تقني أبيض نيون أزرق مستوحى من لوجو Aivare */
         * {
@@ -24,7 +22,6 @@
 
         body {
             background-color: #ffffff;
-            /* خطوط خلفية تقنية زرقاء خفيفة وشبكية مستوحاة من زوايا اللوجو الهندسي */
             background-image: 
                 linear-gradient(rgba(0, 112, 243, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 112, 243, 0.03) 1px, transparent 1px),
@@ -105,7 +102,6 @@
             color: #0070f3;
         }
 
-        /* خط سفلي تفاعلي أسفل أزرار التنقل */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -122,7 +118,6 @@
             width: 80%;
         }
 
-        /* حاوية بيانات العميل في النافبار */
         .user-nav-profile {
             display: flex;
             align-items: center;
@@ -135,7 +130,6 @@
             font-weight: 600;
         }
 
-        /* ستايل الزر المعين الهندسي الماسي (Diamond/Polygon) المستوحى من خطوط اللوجو الحادة */
         .diamond-btn {
             background: linear-gradient(135deg, #0070f3 0%, #00d2ff 100%);
             color: #ffffff;
@@ -148,7 +142,6 @@
             transition: all 0.3s ease;
             display: inline-block;
             text-align: center;
-            /* قطع الأطراف بزاوية ليعطي مظهر المعين الماسي الكرومي الحاد مثل منتصف اللوجو */
             clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
             box-shadow: 0 4px 15px rgba(0, 112, 243, 0.2);
         }
@@ -159,7 +152,6 @@
             box-shadow: 0 6px 20px rgba(0, 112, 243, 0.4);
         }
 
-        /* زر نافبار المعدل */
         .btn-nav-auth {
             background: transparent;
             border: 2px solid #0070f3;
@@ -187,7 +179,6 @@
             box-shadow: 0 0 15px rgba(255, 79, 79, 0.15) !important;
         }
 
-        /* حاوية الصفحات الـ SPA */
         .page-content {
             padding-top: 130px;
             min-height: calc(100vh - 80px);
@@ -196,7 +187,6 @@
             justify-content: center;
         }
 
-        /* إدارة الأقسام */
         .page-section {
             display: none;
             width: 100%;
@@ -213,7 +203,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 1. صفحة الرئيسية - Home */
         .hero {
             display: flex;
             flex-direction: column;
@@ -242,7 +231,6 @@
             margin-bottom: 35px;
         }
 
-        /* العناوين الموحدة للصفحات */
         .section-title {
             font-size: 34px;
             font-weight: 700;
@@ -262,7 +250,6 @@
             color: #0070f3;
         }
 
-        /* 2. صفحة خدماتنا المحدثة */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -282,7 +269,6 @@
             overflow: hidden;
         }
 
-        /* إضافة شريط ملون علوي رفيع لكل كارت ليعطي هوية مستقلة */
         .card::before {
             content: '';
             position: absolute;
@@ -292,7 +278,6 @@
             height: 4px;
         }
 
-        /* ألوان الهوية الثمانية */
         .card-c1::before { background: #3b82f6; }
         .card-c2::before { background: #10b981; }
         .card-c3::before { background: #f59e0b; }
@@ -330,7 +315,6 @@
             line-height: 1.7;
         }
 
-        /* 3. صفحة أعمالنا - Portfolio */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -355,7 +339,6 @@
             transform: translateY(-3px);
         }
 
-        /* معرض الصور المصغر داخل كارت المشروع */
         .project-gallery-preview {
             display: flex;
             gap: 8px;
@@ -364,8 +347,8 @@
         }
 
         .gallery-preview-img {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             object-fit: cover;
             border-radius: 8px;
             border: 1px solid rgba(0, 112, 243, 0.1);
@@ -408,24 +391,29 @@
             color: #475569;
             font-size: 14px;
             flex-grow: 1;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .link-preview {
-            color: #0070f3;
+            background: #0070f3;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 14px;
             font-weight: 700;
             align-self: flex-start;
-            transition: 0.2s;
+            transition: 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0, 112, 243, 0.2);
         }
 
         .link-preview:hover {
-            text-decoration: underline;
-            color: #0056b3;
+            background: #0056b3;
+            box-shadow: 0 6px 16px rgba(0, 112, 243, 0.3);
+            transform: translateY(-2px);
         }
 
-        /* 4. صفحة من نحن - About Us */
         .about-box {
             background: #ffffff;
             border: 1px solid rgba(0, 112, 243, 0.06);
@@ -444,7 +432,6 @@
             line-height: 1.8;
         }
 
-        /* 5. صفحة طلب التعاقد */
         .form-wrapper {
             display: flex;
             justify-content: center;
@@ -523,7 +510,6 @@
             height: 120px;
         }
 
-        /* الفوتر المتكامل */
         .main-footer {
             background: #f8fafc;
             padding: 40px 8% 20px 8%;
@@ -553,7 +539,6 @@
             color: #0070f3;
         }
 
-        /* لينكات السوشيال ميديا */
         .social-links {
             display: flex;
             justify-content: center;
@@ -586,7 +571,6 @@
             font-size: 13px;
         }
 
-        /* التوافق التام مع الشاشات المختلفة */
         @media (max-width: 768px) {
             .navbar { padding: 15px 5%; flex-direction: column; gap: 15px; }
             .nav-left-container { flex-direction: column; gap: 15px; width: 100%; }
@@ -597,335 +581,338 @@
     </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="nav-logo">
-            <img src="https://i.postimg.cc/tJ8Jt46W/Whats-App-Image-2026-06-16-at-3-44-42-PM.jpg" alt="Aivare Logo" width="45" height="45" loading="lazy">
-            <h1><span>Aivare</span> Company</h1>
+<nav class="navbar">
+    <div class="nav-logo">
+        <img alt="Aivare Logo" height="45" loading="lazy" src="https://i.postimg.cc/tJ8Jt46W/Whats-App-Image-2026-06-16-at-3-44-42-PM.jpg" width="45"/>
+        <h1><span>Aivare</span> Company</h1>
+    </div>
+    <div class="nav-left-container">
+        <ul class="nav-links">
+            <li><a aria-label="الصفحة الرئيسية" class="active" id="link-home" onclick="navigateTo('home')" role="button">الرئيسية</a></li>
+            <li><a aria-label="خدماتنا" id="link-services" onclick="navigateTo('services')" role="button">خدماتنا</a></li>
+            <li><a aria-label="أعمالنا" id="link-portfolio" onclick="navigateTo('portfolio')" role="button">أعمالنا</a></li>
+            <li><a aria-label="من نحن" id="link-about" onclick="navigateTo('about')" role="button">من نحن</a></li>
+            <li><a aria-label="طلب تعاقد" id="link-contact" onclick="navigateTo('contact')" role="button">طلب تعاقد</a></li>
+        </ul>
+        <div class="user-nav-profile" id="auth-nav-section">
+            <a class="btn-nav-auth" href="auth.html" rel="noopener" target="_blank">سجل الدخول</a>
         </div>
-        <div class="nav-left-container">
-            <ul class="nav-links">
-                <li><a onclick="navigateTo('home')" id="link-home" class="active" role="button" aria-label="الصفحة الرئيسية">الرئيسية</a></li>
-                <li><a onclick="navigateTo('services')" id="link-services" role="button" aria-label="خدماتنا">خدماتنا</a></li>
-                <li><a onclick="navigateTo('portfolio')" id="link-portfolio" role="button" aria-label="أعمالنا">أعمالنا</a></li>
-                <li><a onclick="navigateTo('about')" id="link-about" role="button" aria-label="من نحن">من نحن</a></li>
-                <li><a onclick="navigateTo('contact')" id="link-contact" role="button" aria-label="طلب تعاقد">طلب تعاقد</a></li>
-            </ul>
-            
-            <div id="auth-nav-section" class="user-nav-profile">
-                <a href="auth.html" id="authBtn" target="_blank" rel="noopener" class="btn-nav-auth">سجل الدخول</a>
+    </div>
+</nav>
+
+<main class="page-content">
+    <!-- الصفحة الرئيسية -->
+    <section class="page-section active" id="page-home">
+        <div class="hero">
+            <h2>نبتكر تقنيات وتطبيقات المستقبل الذكية مع <span>Aivare</span></h2>
+            <p>المنصة المتكاملة لبناء وهندسة الحلول الرقمية والأنظمة السحابية المدعومة بالذكاء الاصطناعي لرفع كفاءة أعمالك.</p>
+            <button class="diamond-btn" onclick="navigateTo('contact')">ابدأ رحلتك معنا الآن</button>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="page-section" id="page-services">
+        <h2 class="section-title">خدمات منصة <span>Aivare</span></h2>
+        <p class="section-subtitle">نقدم حلولاً متكاملة للواجهات الأمامية والخلفية باستخدام أحدث التقنيات العالمية</p>
+        <div class="grid-container">
+            <div class="card card-c1">
+                <div class="card-icon">💻</div>
+                <h3>تطوير الواجهة الأمامية</h3>
+                <p>قم ببناء واجهات مستخدم حديثة وسريعة الاستجابة باستخدام Tailwind HTML و React.js و Next.js و CSS.</p>
+            </div>
+            <div class="card card-c2">
+                <div class="card-icon">⚙️</div>
+                <h3>تطوير الواجهة الخلفية</h3>
+                <p>بناء أنظمة خلفية قوية ومستقرة ومؤمنة بالاعتماد على Node.js أو Express أو Spring Boot أو MongoDB.</p>
+            </div>
+            <div class="card card-c3">
+                <div class="card-icon">🌐</div>
+                <h3>مشاريع تطوير الويب المتكاملة</h3>
+                <p>أنشئ تطبيقات ويب كاملة الوظائف من الصفر مع توفير الاستضافة الآمنة وقواعد البيانات ولوحات التحكم الإدارية.</p>
+            </div>
+            <div class="card card-c4">
+                <div class="card-icon">🔌</div>
+                <h3>تكامل واجهة برمجة التطبيقات</h3>
+                <p>دمج خدمات الدفع والـ APIs مثل Paymob و Razorpay و Stripe، وربط أنظمتك بالـ Firebase وغيرها من السيرفرات.</p>
+            </div>
+            <div class="card card-c5">
+                <div class="card-icon">🎨</div>
+                <h3>تحسينات تجربة وواجهة المستخدم</h3>
+                <p>إعادة تصميم واجهات التطبيقات والمواقع، والرسوم المتحركة والتسلسل الهرمي المرئي لتجربة مستخدم مثالية.</p>
+            </div>
+            <div class="card card-c6">
+                <div class="card-icon">📊</div>
+                <h3>لوحة تحكم المسؤول</h3>
+                <p>قم بإنشاء لوحات تحكم ذكية لإدارة البيانات، والطلبات والمستخدمين، وعرض تحليلات دقيقة لمشروعك.</p>
+            </div>
+            <div class="card card-c7">
+                <div class="card-icon">🔒</div>
+                <h3>نظام المصادقة والأمان</h3>
+                <p>نظام تسجيل الدخول/التسجيل المتقدم باستخدام JWT أو ملفات تعريف الارتباط أو حسابات Google من خلال Firebase Auth.</p>
+            </div>
+            <div class="card card-c8">
+                <div class="card-icon">⚡</div>
+                <h3>تحسين أداء مواقع الويب</h3>
+                <p>تحسين السرعة، ورفع ترتيب محركات البحث SEO، وسهولة الوصول، وضمان استجابة فائقة وسرعة معالجة لا مثيل لها.</p>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <main class="page-content">
+    <!-- معرض المشاريع -->
+    <section class="page-section" id="page-portfolio">
+        <h2 class="section-title">معرض مشاريع <span>Aivare</span></h2>
+        <p class="section-subtitle">رؤية واقعية لابتكاراتنا البرمجية المتقدمة مسحوبة لايف من السيرفر</p>
+        <div class="portfolio-grid" id="portfolio-container"></div>
+    </section>
 
-        <!-- القسم الأول: الرئيسية -->
-        <section id="page-home" class="page-section active">
-            <div class="hero">
-                <h2>نبتكر تقنيات وتطبيقات المستقبل الذكية مع <span>Aivare</span></h2>
-                <p>المنصة المتكاملة لبناء وهندسة الحلول الرقمية والأنظمة السحابية المدعومة بالذكاء الاصطناعي لرفع كفاءة أعمالك.</p>
-                <button class="diamond-btn" onclick="navigateTo('contact')">ابدأ رحلتك معنا الآن</button>
-            </div>
-        </section>
-
-        <!-- القسم الثاني: خدماتنا المحدثة -->
-        <section id="page-services" class="page-section">
-            <h2 class="section-title">خدمات منصة <span>Aivare</span></h2>
-            <p class="section-subtitle">نقدم حلولاً متكاملة للواجهات الأمامية والخلفية باستخدام أحدث التقنيات العالمية</p>
-            
-            <div class="grid-container">
-                <!-- كارت 1 -->
-                <div class="card card-c1">
-                    <div class="card-icon">💻</div>
-                    <h3>تطوير الواجهة الأمامية</h3>
-                    <p>قم ببناء واجهات مستخدم حديثة وسريعة الاستجابة باستخدام Tailwind HTML و React.js و Next.js و CSS.</p>
-                </div>
-                <!-- كارت 2 -->
-                <div class="card card-c2">
-                    <div class="card-icon">⚙️</div>
-                    <h3>تطوير الواجهة الخلفية</h3>
-                    <p>بناء أنظمة خلفية قوية ومستقرة ومؤمنة بالاعتماد على Node.js أو Express أو Spring Boot أو MongoDB.</p>
-                </div>
-                <!-- كارت 3 -->
-                <div class="card card-c3">
-                    <div class="card-icon">🌐</div>
-                    <h3>مشاريع تطوير الويب المتكاملة</h3>
-                    <p>أنشئ تطبيقات ويب كاملة الوظائف من الصفر مع توفير الاستضافة الآمنة وقواعد البيانات ولوحات التحكم الإدارية.</p>
-                </div>
-                <!-- كارت 4 -->
-                <div class="card card-c4">
-                    <div class="card-icon">🔌</div>
-                    <h3>تكامل واجهة برمجة التطبيقات</h3>
-                    <p>دمج خدمات الدفع والـ APIs مثل Paymob و Razorpay و Stripe، وربط أنظمتك بالـ Firebase وغيرها من السيرفرات.</p>
-                </div>
-                <!-- كارت 5 -->
-                <div class="card card-c5">
-                    <div class="card-icon">🎨</div>
-                    <h3>تحسينات تجربة وواجهة المستخدم</h3>
-                    <p>إعادة تصميم واجهات التطبيقات والمواقع، والرسوم المتحركة والتسلسل الهرمي المرئي لتجربة مستخدم مثالية.</p>
-                </div>
-                <!-- كارت 6 -->
-                <div class="card card-c6">
-                    <div class="card-icon">📊</div>
-                    <h3>لوحة تحكم المسؤول</h3>
-                    <p>قم بإنشاء لوحات تحكم ذكية لإدارة البيانات، والطلبات والمستخدمين، وعرض تحليلات دقيقة لمشروعك.</p>
-                </div>
-                <!-- كارت 7 -->
-                <div class="card card-c7">
-                    <div class="card-icon">🔒</div>
-                    <h3>نظام المصادقة والأمان</h3>
-                    <p>نظام تسجيل الدخول/التسجيل المتقدم باستخدام JWT أو ملفات تعريف الارتباط أو حسابات Google من خلال Firebase Auth.</p>
-                </div>
-                <!-- كارت 8 -->
-                <div class="card card-c8">
-                    <div class="card-icon">⚡</div>
-                    <h3>تحسين أداء مواقع الويب</h3>
-                    <p>تحسين السرعة، ورفع ترتيب محركات البحث SEO، وسهولة الوصول، وضمان استجابة فائقة وسرعة معالجة لا مثيل لها.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- القسم الثالث: معرض المشاريع (ديناميكي بالكامل) -->
-        <section id="page-portfolio" class="page-section">
-            <h2 class="section-title">معرض مشاريع <span>Aivare</span></h2>
-            <p class="section-subtitle">رؤية واقعية لابتكاراتنا البرمجية المتقدمة مسحوبة لايف من السيرفر</p>
-            <div class="portfolio-grid" id="portfolio-container">
-                <!-- جاري جلب المشاريع ديناميكياً من الباك إند -->
-                <div style="text-align: center; grid-column: 1/-1; color: #64748b; padding: 40px;">
-                    جاري تحميل المشاريع من سيرفر Aivare...
-                </div>
-            </div>
-        </section>
-
-        <!-- القسم الرابع: من نحن -->
-        <section id="page-about" class="page-section">
-            <h2 class="section-title">من نحن في <span>Aivare</span></h2>
-            <p class="section-subtitle">شغف الابتكار وقيادة المستقبل الرقمي</p>
-            <div class="about-box">
-                <p>تأسست شركة <strong>Aivare</strong> ككيان تكنولوجي رائد يهدف إلى سد الفجوة بين التقنيات البرمجية التقليدية وثورة الذكاء الاصطناعي القادمة.</p>
-                <p>نحن نعمل على تطوير بنى تحتية برمجية، وتطبيقات ذكية، ومنصات بناء مواقع تسهم في تمكين المطورين والشركات من إنجاز مشاريعهم بأعلى درجات الكفاءة والأمان وبأقل مجهود برمجي ممكن.</p>
-                <p>رؤيتنا هي قيادة الابتكار الرقمي وبناء أدوات ذكية تغير مفهوم هندسة البرمجيات في المنطقة.</p>
-            </div>
-        </section>
-
-        <!-- القسم الخامس: طلب التعاقد -->
-        <section id="page-contact" class="page-section">
-            <div class="form-wrapper">
-                <div class="container-form">
-                    <div class="logo-text">موقع <span>Aivare</span> للتعاقد</div>
-                    <p class="subtitle">سجل بياناتك وطلبك الآن، وسيقوم فريقنا التقني بالتواصل معك فوراً.</p>
-
-                    <form id="contactForm" onsubmit="sendContactForm(event)">
-                        <div class="form-group">
-                            <label for="nameInput">الاسم بالكامل</label>
-                            <input type="text" id="nameInput" placeholder="أدخل اسمك أو اسم شركتك" required autocomplete="name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phoneInput">رقم الهاتف / الواتساب</label>
-                            <input type="tel" id="phoneInput" placeholder="مثال: 01223688253" required autocomplete="tel">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="emailInput">البريد الإلكتروني</label>
-                            <input type="email" id="emailInput" placeholder="name@gmail.com" required autocomplete="email">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="messageInput">الرسالة أو طلب التعاقد</label>
-                            <textarea id="messageInput" placeholder="اكتب تفاصيل مشروعك أو الخدمة المطلوبة هنا..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="diamond-btn" style="width: 100%; border-radius: 0; margin-top: 10px;">إرسال طلب التعاقد</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="main-footer">
-        <div class="footer-links">
-            <a onclick="navigateTo('home')" role="button">الرئيسية</a>
-            <a onclick="navigateTo('services')" role="button">خدماتنا</a>
-            <a onclick="navigateTo('portfolio')" role="button">أعمالنا</a>
-            <a onclick="navigateTo('about')" role="button">من نحن</a>
+    <!-- قسم من نحن -->
+    <section class="page-section" id="page-about">
+        <h2 class="section-title">من نحن في <span>Aivare</span></h2>
+        <p class="section-subtitle">شغف الابتكار وقيادة المستقبل الرقمي</p>
+        <div class="about-box">
+            <p>تأسست شركة <strong>Aivare</strong> ككيان تكنولوجي رائد يهدف إلى سد الفجوة بين التقنيات البرمجية التقليدية وثورة الذكاء الاصطناعي القادمة.</p>
+            <p>نحن نعمل على تطوير بنى تحتية برمجية، وتطبيقات ذكية، ومنصات بناء مواقع تسهم في تمكين المطورين والشركات من إنجاز مشاريعهم بأعلى درجات الكفاءة والأمان وبأقل مجهود برمجي ممكن.</p>
+            <p>رؤيتنا هي قيادة الابتكار الرقمي وبناء أدوات ذكية تغير مفهوم هندسة البرمجيات في المنطقة.</p>
         </div>
+    </section>
 
-        <div class="social-links">
-            <a href="https://www.facebook.com/share/17D5tZUE9o/" target="_blank" rel="noopener">فيسبوك</a>
-            <a href="https://www.instagram.com/ai_va_re?igsh=MXEyZmVkZzAwczA0cg==" target="_blank" rel="noopener">إنستجرام</a>
-            <a href="https://x.com/Ai_vare" target="_blank" rel="noopener">منصة X</a>
-            <a href="https://wa.me/201223688253" target="_blank" rel="noopener" style="color: #25D366; border-color: rgba(37, 211, 102, 0.25);">واتساب المبيعات</a>
+    <!-- طلب التعاقد -->
+    <section class="page-section" id="page-contact">
+        <div class="form-wrapper">
+            <div class="container-form">
+                <div class="logo-text">موقع <span>Aivare</span> للتعاقد</div>
+                <p class="subtitle">سجل بياناتك وطلبك الآن، وسيقوم فريقنا التقني بالتواصل معك فوراً.</p>
+                <form id="contactForm" onsubmit="sendContactForm(event)">
+                    <div class="form-group">
+                        <label for="nameInput">الاسم بالكامل</label>
+                        <input autocomplete="name" id="nameInput" placeholder="أدخل اسمك أو اسم شركتك" required="" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneInput">رقم الهاتف / الواتساب</label>
+                        <input autocomplete="tel" id="phoneInput" placeholder="مثال: 01223688253" required="" type="tel"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailInput">البريد الإلكتروني</label>
+                        <input autocomplete="email" id="emailInput" placeholder="name@gmail.com" required="" type="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageInput">الرسالة أو طلب التعاقد</label>
+                        <textarea id="messageInput" placeholder="اكتب تفاصيل مشروعك أو الخدمة المطلوبة هنا..." required=""></textarea>
+                    </div>
+                    <button class="diamond-btn" style="width: 100%; border-radius: 0; margin-top: 10px;" type="submit">إرسال طلب التعاقد</button>
+                </form>
+            </div>
         </div>
+    </section>
+</main>
 
-        <div class="copyright">
-            جميع الحقوق محفوظة © 2026 لشركة Aivare لتقنيات وتطبيقات المستقبل
-        </div>
-    </footer>
+<footer class="main-footer">
+    <div class="footer-links">
+        <a onclick="navigateTo('home')" role="button">الرئيسية</a>
+        <a onclick="navigateTo('services')" role="button">خدماتنا</a>
+        <a onclick="navigateTo('portfolio')" role="button">أعمالنا</a>
+        <a onclick="navigateTo('about')" role="button">من نحن</a>
+    </div>
+    <div class="social-links">
+        <a href="https://www.facebook.com/share/17D5tZUE9o/" rel="noopener" target="_blank">فيسبوك</a>
+        <a href="https://www.instagram.com/ai_va_re?igsh=MXEyZmVkZzAwczA0cg==" rel="noopener" target="_blank">إنستجرام</a>
+        <a href="https://x.com/Ai_vare" rel="noopener" target="_blank">منصة X</a>
+        <a href="https://wa.me/201223688253" rel="noopener" style="color: #25D366; border-color: rgba(37, 211, 102, 0.25);" target="_blank">واتساب المبيعات</a>
+    </div>
+    <div class="copyright">
+        جميع الحقوق محفوظة © 2026 لشركة Aivare لتقنيات وتطبيقات المستقبل
+    </div>
+</footer>
 
-    <script>
-        // روابط الـ API الخاصة بـ Railway
-        const CONTACT_API = "https://aivare-a-company-production.up.railway.app/api/contact";
-        const PROJECTS_API = "https://aivare-a-company-production.up.railway.app/api/projects";
+<script>
+    const CONTACT_API = "https://aivare-a-company-production.up.railway.app/api/contact";
+    const PROJECTS_API = "https://aivare-a-company-production.up.railway.app/api/projects";
+    const BASE_URL = "https://aivare-a-company-production.up.railway.app";
 
-        // دالة التنقل بين صفحات الـ SPA
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            document.getElementById('page-' + pageId).classList.add('active');
-            const activeLink = document.getElementById('link-' + pageId);
-            if(activeLink) activeLink.classList.add('active');
-            
-            window.scrollTo(0, 0);
-
-            // عند التنقل لصفحة المعرض نقوم بتحديث المشاريع تلقائياً
-            if (pageId === 'portfolio') {
-                loadProjectsLive();
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            checkLoginStatus();
-            loadProjectsLive(); // جلب المشاريع فور تحميل الموقع
+    function navigateTo(pageId) {
+        document.querySelectorAll('.page-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
         });
 
-        function checkLoginStatus() {
-            const authSection = document.getElementById("auth-nav-section");
+        document.getElementById('page-' + pageId).classList.add('active');
+        const activeLink = document.getElementById('link-' + pageId);
+        if(activeLink) activeLink.classList.add('active');
+        
+        window.scrollTo(0, 0);
+
+        if (pageId === 'portfolio') {
+            loadProjectsLive();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        checkLoginStatus();
+        loadProjectsLive();
+    });
+
+    function checkLoginStatus() {
+        const authSection = document.getElementById("auth-nav-section");
+        const clientName = localStorage.getItem("aivare_client_name");
+        const isLoggedIn = localStorage.getItem("aivare_logged_in");
+
+        if (isLoggedIn === "true" && clientName) {
+            authSection.innerHTML = `
+                <span class="user-welcome-text">مرحباً، ${clientName}</span>
+                <button onclick="handleLogout()" class="btn-nav-auth btn-nav-logout">تسجيل الخروج</button>
+            `;
+        } else {
+            authSection.innerHTML = `
+                <a href="auth.html" target="_blank" rel="noopener" class="btn-nav-auth">سجل الدخول</a>
+            `;
+        }
+    }
+
+    function handleLogout() {
+        localStorage.removeItem("aivare_logged_in");
+        localStorage.removeItem("aivare_client_name");
+        alert("تم تسجيل الخروج بنجاح.");
+        checkLoginStatus();
+    }
+
+    // تصحيح روابط الصور من localhost إلى Railway
+    function fixImageUrl(url) {
+        if (!url) return 'https://placehold.co/60x60?text=Aivare';
+        if (url.includes('127.0.0.1:8000') || url.includes('localhost:8000')) {
+            return url.replace(/http:\/\/(127\.0\.0\.1|localhost):8000/, BASE_URL);
+        }
+        if (url.startsWith('/')) {
+            return `${BASE_URL}${url}`;
+        }
+        return url;
+    }
+
+    // تصحيح وتجهيز رابط المعاينة المباشر المأخوذ من project.link
+    function formatProjectLink(rawLink) {
+        if (!rawLink || rawLink.trim() === '' || rawLink === '#') return null;
+        let cleanLink = rawLink.trim();
+        
+        // تصحيح لو الرابط كان localhost
+        if (cleanLink.includes('127.0.0.1:8000') || cleanLink.includes('localhost:8000')) {
+            cleanLink = cleanLink.replace(/http:\/\/(127\.0\.0\.1|localhost):8000/, BASE_URL);
+        }
+
+        // إضافة البرتوكول تلقائياً إذا نسيه المستخدم عند الإضافة
+        if (!cleanLink.startsWith('http://') && !cleanLink.startsWith('https://')) {
+            cleanLink = `https://${cleanLink}`;
+        }
+        return cleanLink;
+    }
+
+    // جلب وعرض مشاريع المعرض من السيرفر
+    async function loadProjectsLive() {
+        const container = document.getElementById("portfolio-container");
+
+        try {
+            const response = await fetch(PROJECTS_API);
+            if (!response.ok) throw new Error("فشل جلب المشاريع من السيرفر");
             
-            const clientName = localStorage.getItem("aivare_client_name");
-            const isLoggedIn = localStorage.getItem("aivare_logged_in");
+            const projects = await response.json();
 
-            if (isLoggedIn === "true" && clientName) {
-                authSection.innerHTML = `
-                    <span class="user-welcome-text">مرحباً، ${clientName}</span>
-                    <button onclick="handleLogout()" class="btn-nav-auth btn-nav-logout">تسجيل الخروج</button>
-                `;
-            } else {
-                authSection.innerHTML = `
-                    <a href="auth.html" target="_blank" rel="noopener" class="btn-nav-auth">سجل الدخول</a>
-                `;
-            }
-        }
-
-        function handleLogout() {
-            localStorage.removeItem("aivare_logged_in");
-            localStorage.removeItem("aivare_client_name");
-            alert("تم تسجيل الخروج بنجاح.");
-            checkLoginStatus();
-        }
-
-        // جلب وعرض مشاريع المعرض لايف من السيرفر
-        async function loadProjectsLive() {
-            const container = document.getElementById("portfolio-container");
-            try {
-                const response = await fetch(PROJECTS_API);
-                if (!response.ok) throw new Error("Failed to fetch projects");
-                
-                const projects = await response.json();
-                
-                if (projects.length === 0) {
-                    container.innerHTML = `
-                        <div style="text-align: center; grid-column: 1/-1; color: #64748b; padding: 40px;">
-                            لا توجد مشاريع مضافة حالياً في المعرض. ترقبوا انطلاقتنا القريبة!
-                        </div>`;
-                    return;
-                }
-
-                container.innerHTML = ""; // تفريغ الحاوية
-
-                projects.forEach(project => {
-                    const card = document.createElement("div");
-                    card.className = "project-card";
-
-                    // بناء معرض الصور المصغر للمشروع
-                    let galleryHTML = "";
-                    if (project.images && project.images.length > 0) {
-                        galleryHTML = `<div class="project-gallery-preview">`;
-                        project.images.forEach(imgUrl => {
-                            galleryHTML += `<img src="${imgUrl}" alt="${project.title}" class="gallery-preview-img" onclick="window.open('${imgUrl}', '_blank')" onerror="this.src='https://placehold.co/60x60?text=Aivare'">`;
-                        });
-                        galleryHTML += `</div>`;
-                    } else if (project.img) {
-                        galleryHTML = `
-                            <div class="project-gallery-preview">
-                                <img src="${project.img}" alt="${project.title}" class="gallery-preview-img" onclick="window.open('${project.img}', '_blank')">
-                            </div>`;
-                    }
-
-                    card.innerHTML = `
-                        ${galleryHTML}
-                        <div class="project-info">
-                            <span class="project-tag">مشاريع Aivare</span>
-                            <h3>${project.title}</h3>
-                            <p>${project.description || 'لا يوجد وصف للمشروع.'}</p>
-                            <a href="${project.link}" target="_blank" class="link-preview">عرض المشروع المباشر ↗</a>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error("Error loading live projects:", error);
+            if (!projects || projects.length === 0) {
                 container.innerHTML = `
-                    <div style="text-align: center; grid-column: 1/-1; color: #ff4f4f; padding: 40px;">
-                        ⚠️ فشل الاتصال بالسيرفر لجلب مشاريع المعرض المباشرة.
+                    <div style="text-align: center; grid-column: 1/-1; color: #64748b; padding: 40px;">
+                        لا توجد مشاريع مضافة حالياً في المعرض. ترقبوا انطلاقتنا القريبة!
                     </div>`;
+                return;
             }
-        }
 
-        // دالة إرسال طلب التعاقد إلى سيرفر Railway
-        async function sendContactForm(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById("nameInput").value.trim();
-            const phone = document.getElementById("phoneInput").value.trim();
-            const email = document.getElementById("emailInput").value.trim();
-            const message = document.getElementById("messageInput").value.trim();
+            container.innerHTML = "";
 
-            const payload = {
-                name: name,
-                phone_number: phone, 
-                email: email,
-                message: message
-            };
+            projects.forEach(project => {
+                const card = document.createElement("div");
+                card.className = "project-card";
 
-            try {
-                const response = await fetch(CONTACT_API, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert("🎉 تم إرسال طلب التعاقد بنجاح! سيتم مراجعته والرد عليك فوراً.");
-                    document.getElementById("contactForm").reset();
-                } else {
-                    let errorMsg = "حدث خطأ في السيرفر";
-                    if (data.detail) {
-                        if (typeof data.detail === 'string') {
-                            errorMsg = data.detail;
-                        } else if (Array.isArray(data.detail)) {
-                            errorMsg = data.detail.map(err => `${err.loc?.[1] || err.loc?.[0] || 'الحقل'}: ${err.msg}`).join("\n");
-                        } else {
-                            errorMsg = JSON.stringify(data.detail);
-                        }
-                    }
-                    alert("⚠️ تفاصيل الخطأ القادم من السيرفر:\n" + errorMsg);
+                // 1. معالجة المعرض الخاطف للصور
+                let galleryHTML = "";
+                if (project.images && Array.isArray(project.images) && project.images.length > 0) {
+                    galleryHTML = `<div class="project-gallery-preview">`;
+                    project.images.forEach(imgUrl => {
+                        const correctedUrl = fixImageUrl(imgUrl);
+                        galleryHTML += `<img src="${correctedUrl}" alt="${project.title || 'مشروع'}" class="gallery-preview-img" onclick="window.open('${correctedUrl}', '_blank')" onerror="this.src='https://placehold.co/60x60?text=Aivare'">`;
+                    });
+                    galleryHTML += `</div>`;
                 }
-            } catch (error) {
-                console.error("Error sending message:", error);
-                alert("❌ فشل الاتصال بسيرفر Aivare! يرجى التحقق من اتصالك بالإنترنت والمحاولة مجدداً.");
-            }
+
+                // 2. معالجة زرار عرض المشروع باستخدام المفتاح المباشر (project.link)
+                const validLink = formatProjectLink(project.link);
+                const linkHTML = validLink 
+                    ? `<a href="${validLink}" target="_blank" rel="noopener noreferrer" class="link-preview">عرض المشروع المباشر ↗</a>` 
+                    : `<span style="font-size:12px; color:#94a3b8;">(رابط المعاينة غير متوفر)</span>`;
+
+                card.innerHTML = `
+                    ${galleryHTML}
+                    <div class="project-info">
+                        <span class="project-tag">مشاريع Aivare</span>
+                        <h3>${project.title || 'مشروع جديد'}</h3>
+                        <p>${project.description || 'لا يوجد وصف متاح للمشروع.'}</p>
+                        ${linkHTML}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error("Error loading live projects:", error);
+            container.innerHTML = `
+                <div style="text-align: center; grid-column: 1/-1; color: #ff4f4f; padding: 40px;">
+                    ⚠️ فشل الاتصال بالسيرفر لجلب مشاريع المعرض المباشرة.
+                </div>`;
         }
-    </script>
+    }
+
+    async function sendContactForm(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById("nameInput").value.trim();
+        const phone = document.getElementById("phoneInput").value.trim();
+        const email = document.getElementById("emailInput").value.trim();
+        const message = document.getElementById("messageInput").value.trim();
+
+        const payload = {
+            name: name,
+            phone_number: phone, 
+            email: email,
+            message: message
+        };
+
+        try {
+            const response = await fetch(CONTACT_API, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("🎉 تم إرسال طلب التعاقد بنجاح! سيتم مراجعته والرد عليك فوراً.");
+                document.getElementById("contactForm").reset();
+            } else {
+                let errorMsg = "حدث خطأ في السيرفر";
+                if (data.detail) {
+                    if (typeof data.detail === 'string') {
+                        errorMsg = data.detail;
+                    } else if (Array.isArray(data.detail)) {
+                        errorMsg = data.detail.map(err => `${err.loc?.[1] || err.loc?.[0] || 'الحقل'}: ${err.msg}`).join("\n");
+                    } else {
+                        errorMsg = JSON.stringify(data.detail);
+                    }
+                }
+                alert("⚠️ تفاصيل الخطأ القادم من السيرفر:\n" + errorMsg);
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
+            alert("❌ فشل الاتصال بسيرفر Aivare! يرجى التحقق من اتصالك بالإنترنت والمحاولة مجدداً.");
+        }
+    }
+</script>
 </body>
 </html>
